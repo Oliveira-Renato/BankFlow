@@ -1,4 +1,5 @@
 using BankFlow.Data;
+using BankFlow.Repositorio;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ builder.Services.AddControllersWithViews();
 var provider = builder.Services.BuildServiceProvider();
 var configuration = provider.GetRequiredService<IConfiguration>();
 builder.Services.AddDbContext<BancoContext>(item => item.UseSqlServer(configuration.GetConnectionString("myconn")));
+builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
 
 var app = builder.Build();
 

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ClienteModel
+
+@{
     ViewData["Title"] = "Cadastro de Clientes";
 }
 
@@ -6,19 +8,19 @@
     <h1 class="display-4">Cadastro de Clientes</h1>
     <p>Cadastre o cliente para começar a brincar de transferencias.</p>
 
-    <div class="mt-5">
+    <form class="mt-5" asp-controller="Cliente" asp-action="Criar" method="post">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Nome">
+            <input type="text" asp-for="Name" class="form-control" id="floatingInput" placeholder="Nome">
             <label for="floatingInput">Nome</label>
         </div>
         <div class="form-floating">
-            <input type="text" class="form-control" id="floatingCPF" placeholder="CPF">
+            <input type="text" asp-for="CPF" class="form-control" id="floatingCPF" placeholder="CPF">
             <label for="floatingCPF">CPF</label>
         </div>
 
         <div class="d-flex align-items-center justify-content-between mt-4">
-            <button type="button" class="btn btn-success col-md-3">Salvar</button>
+            <button type="submit" class="btn btn-success col-md-3">Salvar</button>
             <button type="button" class="btn btn-danger col-md-3">Cancelar</button>
         </div>
-    </div>
+    </form>
 </div>
