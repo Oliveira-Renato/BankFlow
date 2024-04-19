@@ -59,7 +59,8 @@ namespace BankFlow.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClienteId");
+                    b.HasIndex("ClienteId")
+                        .IsUnique();
 
                     b.ToTable("Saldos");
                 });
@@ -92,8 +93,8 @@ namespace BankFlow.Migrations
             modelBuilder.Entity("BankFlow.Models.SaldoModel", b =>
                 {
                     b.HasOne("BankFlow.Models.ClienteModel", "Cliente")
-                        .WithMany("Saldos")
-                        .HasForeignKey("ClienteId")
+                        .WithOne("Saldos")
+                        .HasForeignKey("BankFlow.Models.SaldoModel", "ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -113,7 +114,8 @@ namespace BankFlow.Migrations
 
             modelBuilder.Entity("BankFlow.Models.ClienteModel", b =>
                 {
-                    b.Navigation("Saldos");
+                    b.Navigation("Saldos")
+                        .IsRequired();
 
                     b.Navigation("Transacoes");
                 });

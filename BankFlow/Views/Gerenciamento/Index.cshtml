@@ -9,13 +9,13 @@
     <p>Gerencie seu saldo e outras transações.</p>
 
     <div class="text-center">
-        <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+        <select id="clienteSelect" class="form-select form-select-lg mb-3" aria-label="Large select example">
             <option selected>Selecione o cliente</option>
             @if(Model != null && Model.Any())
             {
                 foreach(ClienteModel cliente in Model)
                 {
-                    <option value="@cliente.Id">@cliente.Name</option>
+                    <option value="@cliente.Id" data-saldo="@cliente.Saldos.Saldo">@cliente.Name</option>
                 }
                 
             }
@@ -34,7 +34,7 @@
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                     <div class="accordion-body">
                         <strong>Saldo disponivel</strong> 
-                        <p>R$ 0.00</p>
+                        <p id="saldoDisponivel">R$ 0.00</p>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 </h2>
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                        <strong>Cliente nome</strong> 
+                        <strong id="cliente_nome">Cliente nome</strong> 
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingInput" placeholder="Valor">
@@ -87,3 +87,4 @@
         </div>
     </div>
 </div>
+

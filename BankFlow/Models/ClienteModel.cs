@@ -12,8 +12,9 @@ namespace BankFlow.Models
 
         public string CPF { get; set; }
 
+
         // Relação com os saldos
-        public List<SaldoModel> Saldos { get; set; }
+        public SaldoModel Saldos { get; set; }
 
         // Relação com as transações
         public List<TransacaoModel> Transacoes { get; set; }

@@ -5,11 +5,25 @@
 namespace BankFlow.Migrations
 {
     /// <inheritdoc />
-    public partial class SaldosTransacoesModelsCreated : Migration
+    public partial class SaldosTrans : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Clientes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "Varchar(200)", nullable: false),
+                    CPF = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clientes", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Saldos",
                 columns: table => new
@@ -54,7 +68,8 @@ namespace BankFlow.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Saldos_ClienteId",
                 table: "Saldos",
-                column: "ClienteId");
+                column: "ClienteId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transacoes_ClienteId",
@@ -70,6 +85,9 @@ namespace BankFlow.Migrations
 
             migrationBuilder.DropTable(
                 name: "Transacoes");
+
+            migrationBuilder.DropTable(
+                name: "Clientes");
         }
     }
 }

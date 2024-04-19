@@ -6,5 +6,6 @@ namespace BankFlow.Repositorio
     {
         List<ClienteModel> BuscarTodos();
         ClienteModel Adicionar(ClienteModel cliente);
+        decimal BuscarSaldoPorClienteId(int clienteId);
     }
 }
