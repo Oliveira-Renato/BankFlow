@@ -10,6 +10,10 @@ namespace BankFlow.Repositorio
         {
             _bancoContext = bancoContext;
         }
+        public List<ClienteModel> BuscarTodos()
+        {
+            return _bancoContext.Clientes.ToList();
+        }
         public ClienteModel Adicionar(ClienteModel cliente)
         {
             // Gravar no banco de dados
@@ -18,5 +22,6 @@ namespace BankFlow.Repositorio
 
             return cliente;
         }
+
     }
 }

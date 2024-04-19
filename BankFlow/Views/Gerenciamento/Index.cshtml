@@ -1,10 +1,27 @@
-﻿@{
+﻿@model List<ClienteModel>
+
+@{
     ViewData["Title"] = "Gerenciamento de Saldo";
 }
 
 <div class="text-center">
     <h1 class="display-4">Gerenciamento de Saldo</h1>
     <p>Gerencie seu saldo e outras transações.</p>
+
+    <div class="text-center">
+        <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+            <option selected>Selecione o cliente</option>
+            @if(Model != null && Model.Any())
+            {
+                foreach(ClienteModel cliente in Model)
+                {
+                    <option value="@cliente.Id">@cliente.Name</option>
+                }
+                
+            }
+            
+        </select>
+    </div>
 
     <div class="mt-5">
         <div class="accordion" id="accordionPanelsStayOpenExample">

@@ -10,5 +10,7 @@ namespace BankFlow.Data
         }
 
         public DbSet<ClienteModel> Clientes { get; set; }
+        public DbSet<SaldoModel> Saldos { get; set; } 
+        public DbSet<TransacaoModel> Transacoes { get; set; }
     }
 }
