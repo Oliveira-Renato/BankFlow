@@ -5,7 +5,7 @@
 namespace BankFlow.Migrations
 {
     /// <inheritdoc />
-    public partial class BankFlowDBfirstCreate : Migration
+    public partial class FirtCreateTest : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

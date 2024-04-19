@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankFlow.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20240419032005_BankFlowDBfirstCreate")]
-    partial class BankFlowDBfirstCreate
+    [Migration("20240419054837_FirtCreateTest")]
+    partial class FirtCreateTest
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
